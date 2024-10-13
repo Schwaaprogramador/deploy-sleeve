@@ -23,13 +23,14 @@ const Navbar = () => {
                     X
                 </button>
             </div>
+
       <div className='w-full flex flex-col justify-center items-center gap-3'>
 
           <Link to="/home" className='font-lato text-2xl'>Inicio</Link>
-          <Link to="/tienda" className='font-path text-2xl'>Tienda</Link>
-          <Link to="/boutique" className='font-jose text-2xl'>Boutique</Link>
-          <Link to="/joyeria" className='font-jose text-2xl'>Joyeria</Link>
-          <Link to="/perfume" className='font-jose text-2xl'>Perfume</Link>
+          <Link to="/tienda" className='font-lato text-2xl'>Tienda</Link>
+          <Link to="/boutique" className='font-lato text-2xl'>Boutique</Link>
+          <Link to="/joyeria" className='font-lato text-2xl'>Joyeria</Link>
+          <Link to="/perfume" className='font-lato text-2xl'>Perfume</Link>
           {/* <Link to="/gifts">Gifts</Link> */}
           {/* <Link to="/form" className='font-jose text-2xl'>form</Link> */}
       </div>

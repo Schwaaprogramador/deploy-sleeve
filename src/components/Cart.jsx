@@ -11,8 +11,9 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const [ cart, setCart ] = useState('');
-    const cartId = useSelector(state => state.cart.id);
-    console.log(cartId)
+    const cartId = useSelector(state => state.cart.id);    
+
+    console.log(cart);
 
   useEffect(() => {
 
@@ -34,34 +35,39 @@ const Cart = () => {
 
 
   return (
-    <div className='w-1/2 absolute mt-8 right-0 bg-slate-600/70 text-gray-200 flex flex-col rounded-3xl px-6'>
+    <div className='w-screen lg:w-1/2 absolute right-0 top-0 bg-white text-black flex flex-col justify-start items-center px-6 h-screen drop-shadow-xl'>
 
-        <div className='flex w-full flex-row-reverse'>
-        
-              <button onClick={()=> dispatch(closeCart())} className='text-2xl'>
-                    X
-              </button>
-              
+        <div className='flex w-full flex-row-reverse p-5'>        
+              <button onClick={()=> dispatch(closeCart())} className='text-2xl'> X  </button>              
         </div>
 
-        <div>
+        <div className='flex flex-col items-start justify-center gap-2 lg:flex-wrap'> 
 
-          {cart.lines?.edges ? cart.lines.edges.map( item => (
-            <div className='flex flex-col items-center'>
-              <p>{item.node.estimatedCost?.totalAmount.amount}</p>
-              <img src={item.node.merchandise?.image.url} className='w-[100px] rounded-3xl'/>
-              <p>{item.node.merchandise.title}</p>
-            </div>
+          {
+          
+            cart.lines?.edges ? cart.lines.edges.map( item => (
+              <div className='flex flex-col items-center lg:flex-row justify-center gap-2'>
+                
+                <img src={item.node.merchandise?.image.url} className='w-[100px] lg:w-[150px]'/>
+                <p>{item.node.merchandise.title}</p>
+                <p>x{item.node.quantity}</p>
+                <p>{item.node.merchandise?.price.amount}</p>
 
-          )) : <p>Carrito vacio</p>}
+              </div>
+
+          )) : <p className='text-2xl'>Carrito vacio</p>
+          
+          }
 
 
         </div>
 
 
-        <div className='flex flex-col items-center'>
-          <p className='font-jose text-2xl p-2'>Precio Total</p>
-          <a href={cart.checkoutUrl} className='font-jose text-2xl p-2'>Check Out</a>
+        <div className='w-full flex flex-col items-center justify-center lg:flex-row py-10'>
+         
+           { cart.cost ? <p className='font-path text-2xl p-2'>Precio Total: {cart.cost?.totalAmount.amount}</p> : <p> Carrito Vacio</p> } 
+          
+          <a href={cart.checkoutUrl} className='font-jose text-2xl p-2 bg-black text-white rounded-2xl'>Check Out</a>
         </div>
     </div>
   )

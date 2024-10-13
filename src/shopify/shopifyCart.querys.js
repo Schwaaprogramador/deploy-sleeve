@@ -20,21 +20,25 @@ query getCarrito($cartId: ID!) {
     lines(first: 250) {
       edges {
         node {
+          quantity
           merchandise {
             ... on ProductVariant {
               id
               title
+              price {
+                amount
+              }
               image {
                 url
               }
             }
-          }
-          estimatedCost {
-            totalAmount {
-              amount
-            }
-          }
+          }          
         }
+      }
+    }
+      cost {
+      totalAmount {
+        amount
       }
     }
   }

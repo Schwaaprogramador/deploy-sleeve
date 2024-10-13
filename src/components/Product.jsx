@@ -17,7 +17,7 @@ const Product = ({id, title, precio, img}) => {
                 <div className='h-[45px] flex flex-col items-center justify-center text-center'>
                     <p className='font-path text-2xl'>{title}</p>
                 </div>
-                <p className='font-jose text-xl'>{ precio}</p>
+                <p className='font-lato text-xl'>{ precio}</p>
             </NavLink>
 
     </div>
