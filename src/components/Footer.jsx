@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className="w-screen h-[500px] lg:h-[300px] bg-slate-600 bg-footerMobile lg:bg-footerPC bg-cover bg-center bg-no-repeat flex flex-col items-center justify-start py-10 text-white font-lato">
+    <div className="w-screen h-[300px] lg:h-[300px] bg-slate-600 bg-footerMobile lg:bg-footerPC bg-cover bg-center bg-no-repeat flex flex-col items-center justify-start py-10 text-white font-lato">
        
        {/* <div className='flex gap-4'>
           <input placeholder='Correo Electronico'/>

@@ -16,7 +16,7 @@ function Header() {
   const navbarShow = useSelector(state => state.navbarStatus);
   const cartShow = useSelector( state => state.cart);
   const cartId = useSelector(state => state.cart.id);
-
+  const contador = useSelector(state => state.cart.items); 
 
   useEffect(()=>{
 
@@ -40,7 +40,7 @@ function Header() {
 
 
   return (
-    <div className="w-screen fixed bg-white/50 flex justify-between px-10 lg:px-28">
+    <div className="w-screen fixed bg-white/50 flex justify-around px-10 lg:px-28">
 
                 <div className="text-white p-2">
                        { navbarShow.status ? <Navbar/> : null }
@@ -50,12 +50,19 @@ function Header() {
                       </button>
                 </div>
                 
-                <div className="text-white p-2">
+                <div className="text-white p-2 ">
                        { cartShow.status ? <Cart/> : null }
 
-                      <button onClick={() => dispatch(openCart())}>
-                        { cartShow.status ? null :  <img src={bag}/> }              
-                      </button>
+                        { cartShow.status ? null : 
+                           <button onClick={() => dispatch(openCart())} className="gap-0 flex">                           
+                            <img src={bag}/> 
+                          </button>
+                        }              
+                </div>
+                        
+                <div>
+
+
                 </div>
 
 

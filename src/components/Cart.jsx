@@ -11,7 +11,8 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const [ cart, setCart ] = useState('');
-    const cartId = useSelector(state => state.cart.id);    
+    const cartId = useSelector(state => state.cart.id);
+         
 
   useEffect(() => {
 

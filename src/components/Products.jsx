@@ -14,7 +14,6 @@ const Products = () => {
     const collectionValue = useSelector(state => state.product.collectionValue);
     const [ searchParams , setSearchParams ] = useState('');
 
-    console.log(filteredProducts)
 
     const handleChange = async (event) => {
 

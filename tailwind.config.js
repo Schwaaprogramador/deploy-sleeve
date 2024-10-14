@@ -12,10 +12,11 @@ export default {
 				"landingBackgroundMobile":"url('/src/assets/landingImages/fondovibes_landing.jpg')",
 				"landingBackgroundPC":"url('/src/assets/landingImages/pc_landing.jpg')",
 				// ------HOME BACKGROUNDS--------
+				"homeInscribete":"url('/src/assets/news/inscribete.jpg')",
 				"homeFirtsSection":"url('/src/assets/news/shopnow.jpg')",
 				"homeSecondSection":"url('/src/assets/news/boutique.jpg')",
 				"homeThirdSection":"url('/src/assets/news/joyeria.jpg')",
-				"homeFourSection":"url('/src/assets/homeImages/four_section.jpg')",
+				"homeFourSection":"url('/src/assets/news/perfume.jpg')",
 				"homeFiveSection":"url('/src/assets/homeImages/five_section.jpg')",
 				"homePCFirtsSection": "url('/src/assets/homeImages/pcFirts_section.jpg')",
 				"homePCSecondSection":"url('/src/assets/homeImages/pc_boutique.jpg')",
@@ -32,7 +33,7 @@ export default {
 				"croche":"url('/src/assets/news/crochet.jpg')",
 				"newin":"url('/src/assets/news/newin.jpg')",
 				"seamless":"url('/src/assets/news/seamless.jpg')",
-				"undies":"url('/src/assets/boutiqueImages/undies5.jpg')",
+				"undies":"url('/src/assets/news/undies.jpg')",
 				"pc_accesorios": "url('/src/assets/boutiqueImages/pc_accesorios.jpg')",
 				"pc_croche": "url('/src/assets/boutiqueImages/pc_croche.jpg')",
 				"pc_new-in": "url('/src/assets/boutiqueImages/pc_new-in.jpg')",
@@ -40,8 +41,8 @@ export default {
 				"pc_undies": "url('/src/assets/boutiqueImages/pc_undies.jpg')",
 
 				// ------JOYERIA BACKGROUNDS--------
-				"joyeria":"url('/src/assets/joyeriaImages/joyeria.jpg')",
-				"joyeria-alta":"url('/src/assets/joyeriaImages/altajoyeria.jpg')",
+				"joyeria":"url('/src/assets/news/joyeria2.jpg')",
+				"joyeria-alta":"url('/src/assets/news/altaJoyeria.jpg')",
 				"pc_joyeria-alta":"url('/src/assets/joyeriaImages/pc_altajoyeria.jpg')",
 				"pc_joyeria":"url('/src/assets/joyeriaImages/pc_joyeria.jpg')",
 

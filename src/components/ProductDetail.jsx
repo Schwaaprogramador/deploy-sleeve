@@ -16,7 +16,18 @@ const ProductDetail = () => {
   const { id } = useParams();
   const decodedId = decodeURIComponent(id);
   
+
+  const checkAltaJoyeria = () => {      
+    producto?.collections?.nodes.map( item => {
+      console.log(item)
+      if(item.title == 'Alta joyería'){
+        console.log(item)
+        setAltaJoyeria(true)
+      }})     
+}
   
+  
+ 
   useEffect(() => {
 
     window.scrollTo(0, 0);
@@ -30,6 +41,7 @@ const ProductDetail = () => {
       const productoFeche = await fetchProductoDetail({id:decodedId})
       if(productoFeche){        
         setProducto(productoFeche.data?.product)
+        checkAltaJoyeria();
       }
     }    
     feche();
@@ -43,15 +55,8 @@ const ProductDetail = () => {
     }
     recomendadosProductos();
 
-    const checkAltaJoyeria = () => {
-      
-        producto.collections.nodes.map( item => {
-          if(item.title == 'Alta joyería'){
-            setAltaJoyeria(true)
-          }})
-     
-    }
-    checkAltaJoyeria();
+    
+    
  
   }, [decodedId])
   
@@ -59,15 +64,16 @@ const ProductDetail = () => {
   
   return (
       <DefaultLayout>
-        <div className=' flex flex-col justify-center items-center'>
+        <div className=' flex flex-col justify-center items-center'>  
 
           <div className='flex flex-col lg:flex-row lg:my-16 lg:w-[1000px]'>
 
-              <img src={producto?.images?.nodes[0].url} className='w-screen lg:w-[500px] '/>
+              <img src={producto?.images?.nodes[0].url} className='w-screen lg:w-2/3 '/>
 
               <div className='w-screen my-10 flex flex-col justify-center items-center'>
-                <p className='text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
-                <p className='p-10'>{producto.description}</p>        
+                <p className='p-10 text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
+                <p className='p-10'>{producto.description}</p>      
+                <p className='p-10 text-2xl lg:text-3xl font-jose'>Precio: {producto?.variants?.nodes[0].price.amount }</p>   
               </div>
 
           </div>
@@ -79,7 +85,14 @@ const ProductDetail = () => {
 
               { producto ? producto.variants.nodes.map( item => (                         
                
-                <Variants tittle={item.title} img={item.image.url} id={item.id} avaible={item.availableForSale} altaJoyeria={altaJoyeria}/>
+                <Variants tittle={item.title} 
+                          img={item.image.url} 
+                          id={item.id} 
+                          avaible={item.availableForSale} 
+                          altaJoyeria={altaJoyeria}
+                          precio={item.price.amount}
+                          
+                          />
       
               )) : <p>cargando</p>}
 

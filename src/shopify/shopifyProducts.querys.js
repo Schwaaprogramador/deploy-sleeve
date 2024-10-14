@@ -39,6 +39,9 @@ query getProducto($productId: ID!){
         id
         title
         availableForSale
+        price {
+            amount
+          }
         image {
           url
         }
