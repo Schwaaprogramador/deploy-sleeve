@@ -9,7 +9,7 @@ import Perfume from "./pages/Perfume";
 import Form from "./pages/Form";
 import ProductDetail from "./components/ProductDetail";
 import Scroll from "./helpers/Scroll.jsx";
-import ConcursoJoya from "./pages/consurso.jsx";
+import ConcursoJoya from "./pages/Consurso.jsx";
 
 
 
