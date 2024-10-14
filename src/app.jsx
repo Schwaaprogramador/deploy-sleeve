@@ -9,6 +9,7 @@ import Perfume from "./pages/Perfume";
 import Form from "./pages/Form";
 import ProductDetail from "./components/ProductDetail";
 import Scroll from "./helpers/Scroll.jsx";
+import ConcursoJoya from "./pages/consurso.jsx";
 
 
 
@@ -21,6 +22,7 @@ export function App() {
       {/* <Route exact path="/" element={<Landing />} /> */}
       <Route exact path="/" element={<Home />} />
       <Route exact path="/tienda" element={<Tienda />} />
+      <Route exact path="/concurso" element={<ConcursoJoya />} />
       <Route exact path="/boutique" element={<Boutique />} />
       <Route exact path="/joyeria" element={<Joyeria />} />
       <Route exact path="/perfume" element={<Perfume />} />

@@ -9,6 +9,7 @@ import Cart from "./Cart";
 import { createCarrito } from '../shopify/ShopifyFetchs';
 import Hambur from '../assets/navbarImages/menuHamburguesaNegro.png'
 import bag from '../assets/navbarImages/carritoNegro.png'
+import Alerta from "../helpers/Alerta";
 
 function Header() {
 
@@ -16,7 +17,8 @@ function Header() {
   const navbarShow = useSelector(state => state.navbarStatus);
   const cartShow = useSelector( state => state.cart);
   const cartId = useSelector(state => state.cart.id);
-  const contador = useSelector(state => state.cart.items); 
+  const contador = useSelector(state => state.cart.items);
+  const alarma = useSelector(state => state.cart.alarma); 
 
   useEffect(()=>{
 
@@ -40,7 +42,7 @@ function Header() {
 
 
   return (
-    <div className="w-screen fixed bg-white/50 flex justify-around px-10 lg:px-28">
+    <div className="w-screen fixed bg-white/50 flex justify-between px-10 ">
 
                 <div className="text-white p-2">
                        { navbarShow.status ? <Navbar/> : null }
@@ -50,20 +52,23 @@ function Header() {
                       </button>
                 </div>
                 
-                <div className="text-white p-2 ">
-                       { cartShow.status ? <Cart/> : null }
+                <div className="text-white p-2 flex justify-end w-full">                    
+                      { cartShow.status ? <Cart/> : null }
 
-                        { cartShow.status ? null : 
-                           <button onClick={() => dispatch(openCart())} className="gap-0 flex">                           
-                            <img src={bag}/> 
-                          </button>
-                        }              
+                    <button onClick={() => dispatch(openCart())}>
+                      { cartShow.status ? null :  
+                      <div className="flex gap-0">
+                        {contador !=0 ? <p className="bg-red-700 h-5 w-5 rounded-full flex items-center justify-center">{contador}</p> : null }
+                        <img src={bag}/> 
+                      </div>
+                      
+                      }             
+                    </button>                     
+
                 </div>
-                        
-                <div>
-
-
-                </div>
+             
+                { alarma ? <Alerta/> : null }
+               
 
 
     </div>

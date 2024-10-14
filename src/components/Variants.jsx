@@ -2,7 +2,7 @@ import { useState } from "preact/hooks"
 import { addItemAlCarrito } from '../shopify/ShopifyFetchs';
 import { useSelector  } from "react-redux";
 import { useDispatch  } from "react-redux";
-import { closeCart, sumarItem } from "../redux/cartSlice";
+import { closeCart, openAlarma, sumarItem } from "../redux/cartSlice";
 
 
 
@@ -16,8 +16,9 @@ const Variants = ({id, tittle, img, avaible, altaJoyeria, precio}) => {
       //CERAR EL CARRITO PARA QUE AL ABRIRLO DE NUEVO SE ACTUALICE
         dispatch(closeCart());
         dispatch(sumarItem());
+        dispatch(openAlarma());
         await addItemAlCarrito({cartId, variantId:id});
-        alert(`articulo agregado al carrito`);
+        //alert(`articulo agregado al carrito`);
     }
 
     const redirectToWhatsApp = () => {
@@ -41,7 +42,7 @@ const Variants = ({id, tittle, img, avaible, altaJoyeria, precio}) => {
                 : avaible ? 
                 <button onClick={()=> agregarItemAlCarrito()} className='rounded-full p-2 font-lato text-black border-2 bg-transparent'>Agregar</button> 
                 :
-                <p className="text-sm text-red-600 font-lato">Sold Out</p>
+                <p className="p-2 text-red-600 font-lato">Sold Out</p>
                 }
 
                 

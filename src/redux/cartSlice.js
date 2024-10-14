@@ -5,6 +5,7 @@ const initialState = {
     id: '',
     status: false,
     items:0,
+    alarma: false,
 };
 
 
@@ -28,11 +29,26 @@ export const cartSlice = createSlice({
         restarItem:(state)=>{
             state.items -= 1;
         },
+        openAlarma: (state)=>{
+            state.alarma = true;
+        },
+        closeAlarma:(state)=>{
+            state.alarma = false;
+        },
 
     }
 })
 
-export const { openCart, closeCart, createCartId, sumarItem, restarItem } = cartSlice.actions;
+export const { 
+    openCart, 
+    closeCart, 
+    createCartId, 
+    sumarItem, 
+    restarItem, 
+    openAlarma, 
+    closeAlarma
+    
+} = cartSlice.actions;
 
 
 export default cartSlice.reducer;
