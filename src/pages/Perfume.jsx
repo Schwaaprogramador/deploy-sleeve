@@ -31,7 +31,7 @@ const Perfume = () => {
             </div>
             
               <div className='flex items-center justify-center'>
-                <video autoPlay loop>
+                <video autoPlay loop className='h-screen'>
                   <source src={video} type="video/mp4" />
                   Tu navegador no soporta el elemento de video.
                 </video>
