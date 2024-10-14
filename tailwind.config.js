@@ -49,7 +49,8 @@ export default {
 				// ------PERFUME BACKGROUNDS--------
 				"sec1":"url('/src/assets/perfumeImages/secbanner1.jpg')",
 				"sec2":"url('/src/assets/perfumeImages/secbanner2.jpg')",
-				"sec3":"url('/src/assets/perfumeImages/sec3video.jpg')",
+				"sec3":"url('/src/assets/news/videomobile.jpg')",
+				"secV":"url('/src/assets/news/videopc.jpg')",
 				"sec4":"url('/src/assets/perfumeImages/carrusel1.jpg')",
 				"pc_sec1":"url('/src/assets/perfumeImages/pc_banner1.jpg')",
 				"pc_sec2":"url('/src/assets/perfumeImages/pc_sec2.jpg')",
