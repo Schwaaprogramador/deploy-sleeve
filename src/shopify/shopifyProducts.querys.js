@@ -6,7 +6,7 @@
 // VERIFICAR EL STACK
 export const productQuery = `
 query getProducts {
-  products(first: 250) {
+  products(first: 250, reverse: true) {
     nodes {
       title
       images(first: 10) {
@@ -34,7 +34,7 @@ query getProducts {
 export const productQueryDetail = `
 query getProducto($productId: ID!){
   product(id: $productId) {
-    variants(first: 250) {
+    variants(first: 250, reverse: true) {
       nodes {
         id
         title
@@ -51,6 +51,11 @@ query getProducto($productId: ID!){
     }
     title
     description
+    collections(first: 10) {
+      nodes {
+        title
+      }
+    }
   }
 }
 `

@@ -22,7 +22,7 @@ const Home = () => {
                 
 
                 {/* <!-- ------SEGUNDA SECCION-------- --> */}
-                <div class="bg-homeSecondSection lg:bg-homePCSecondSection lg:w-screen lg:h-[400px] lg:bg-center bg-cover w-full h-[500px] flex justify-center items-center">
+                <div class="bg-homeSecondSection lg:bg-homePCSecondSection bg-center lg:w-screen lg:h-[400px] lg:bg-center bg-cover w-full h-[500px] flex justify-center items-center">
                     <a href="/boutique" className='flex justify-center items-center text-white font-jose lg:text-8xl text-5xl hover:text-black'>                    
                         BOUTIQUE
                     </a>

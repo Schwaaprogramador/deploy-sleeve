@@ -1,48 +1,59 @@
 import { useState, useEffect } from 'preact/hooks'
 import { fetchProductoDetail, productRecomendados } from '../shopify/ShopifyFetchs';
-import { useSelector  } from "react-redux";
 import DefaultLayout from '../layouts/DefaultLayout';
 import Variants from './Variants';
 import { useNavigate } from 'react-router-dom';
 import Recomendados from './Recomendados';
+import { useParams } from 'react-router-dom';
 
 
-
-const ProductDetail = () => {
+const ProductDetail = () => {  
 
   const navigate = useNavigate();
-  const idDetail = useSelector(state => state.product.id);
   const [ producto , setProducto ] = useState('')
   const [ recomendados , setRecomendados ] = useState('');
-
-
+  const [ altaJoyeria , setAltaJoyeria ] = useState(false)
+  const { id } = useParams();
+  const decodedId = decodeURIComponent(id);
+  
+  
   useEffect(() => {
-    
+
     window.scrollTo(0, 0);
 
-    if(!idDetail){
+    if(!decodedId){
       navigate('/tienda');
     }
     
+
     const feche = async () => {
-      const productoFeche = await fetchProductoDetail({id:idDetail})
+      const productoFeche = await fetchProductoDetail({id:decodedId})
       if(productoFeche){        
         setProducto(productoFeche.data?.product)
       }
-    }
-    
+    }    
     feche();
 
+
     const recomendadosProductos = async ()=>{
-      const productoFeche = await productRecomendados({productId:idDetail})
+      const productoFeche = await productRecomendados({productId:decodedId})
       if(productoFeche){        
         setRecomendados(productoFeche.data?.productRecommendations)
       }
     }
     recomendadosProductos();
 
-
-  }, [idDetail])
+    const checkAltaJoyeria = () => {
+      
+        producto.collections.nodes.map( item => {
+          if(item.title == 'Alta joyería'){
+            setAltaJoyeria(true)
+          }})
+     
+    }
+    checkAltaJoyeria();
+ 
+  }, [decodedId])
   
   
   
@@ -68,7 +79,7 @@ const ProductDetail = () => {
 
               { producto ? producto.variants.nodes.map( item => (                         
                
-                <Variants tittle={item.title} img={item.image.url} id={item.id}/>
+                <Variants tittle={item.title} img={item.image.url} id={item.id} avaible={item.availableForSale} altaJoyeria={altaJoyeria}/>
       
               )) : <p>cargando</p>}
 

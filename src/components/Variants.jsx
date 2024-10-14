@@ -6,14 +6,12 @@ import { closeCart } from "../redux/cartSlice";
 
 
 
-const Variants = ({id, tittle, img}) => {
+const Variants = ({id, tittle, img, avaible, altaJoyeria}) => {
 
     const dispatch = useDispatch();
 
-    const cartId = useSelector(state => state.cart.id);
-    const [ selected, setSelected ] = useState(false);
-
-
+    const cartId = useSelector(state => state.cart.id); 
+   
     const agregarItemAlCarrito = async () => {
       //CERAR EL CARRITO PARA QUE AL ABRIRLO DE NUEVO SE ACTUALICE
         dispatch(closeCart());
@@ -21,26 +19,31 @@ const Variants = ({id, tittle, img}) => {
         alert(`articulo agregado al carrito`);
     }
 
-    const handlerSelected = () => {
-        if(selected) {
-            setSelected(false)
-        }
-        if(selected==false) {
-            setSelected(true)
-        }
-    }
-  
+    const redirectToWhatsApp = () => {
+      const phoneNumber = '523127720217';  // Número de teléfono en formato internacional
+      const message = '¡Hola! Estoy interesado en más información.';  // Mensaje predefinido
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      // Redirigir a la URL de WhatsApp
+      window.location.href = whatsappURL;
+    };
 
   
   return (
-    <div className={`${selected ? 'bg-slate-500' : 'bg-slate-50'}  flex flex-col items-center justify-center p-5 rounded-3xl gap-2`}>                
+    <div className={`bg-slate-50 flex flex-col items-center justify-center p-5 rounded-3xl gap-2`}>                
 
-                <button onClick={() => handlerSelected()}>
                   {tittle}
-                  <img src={img} className=' w-[150px]'/>                
-                </button>
+                  <img src={img} className=' w-[150px] rounded-2xl'/>  
 
-                <button onClick={()=> agregarItemAlCarrito()} className='rounded-full p-2 font-lato text-black border-2 bg-transparent'>Agregar</button>
+                { avaible 
+                ? 
+                <button onClick={()=> agregarItemAlCarrito()} className='rounded-full p-2 font-lato text-black border-2 bg-transparent'>Agregar</button> 
+                :
+                <p className="text-sm text-red-600 font-lato">Sold Out</p>
+                
+                }
+
+                
     </div>
   )
 }

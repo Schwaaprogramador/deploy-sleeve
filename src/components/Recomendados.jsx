@@ -10,12 +10,13 @@ const Recomendados = ({title, img, id}) => {
     const setId = () => {        
         dispatch(ponerId(id))
     }
-
+    const uri = encodeURIComponent(id);
+    
   return (
     <div className='w-[170px] lg:w-[250px] my-10'>
 
       
-          <NavLink to={`/productDetail/${title}`} className='flex flex-col items-center gap-3' onClick={setId}>
+          <NavLink to={`/productDetail/${uri}`} className='flex flex-col items-center gap-3' onClick={setId}>
                   <div className='h-[45px] flex flex-col items-center justify-center text-center'>
                       <p className='font-path text-2xl'>{title}</p>
                   </div>     

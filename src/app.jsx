@@ -25,7 +25,7 @@ export function App() {
       <Route exact path="/joyeria" element={<Joyeria />} />
       <Route exact path="/perfume" element={<Perfume />} />
       <Route exact path="/form" element={<Form />} />
-      <Route path="/productDetail/:title" element={<ProductDetail/>} />
+      <Route path="/productDetail/:id" element={<ProductDetail/>} />
     </Routes>
  </>
   
