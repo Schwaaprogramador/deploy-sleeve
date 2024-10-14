@@ -2,7 +2,7 @@ import { fetchProductos, filterProducts, getCategorias, searchProducts } from '.
 import { useEffect, useState } from 'react'
 import Product from './Product';
 import { useSelector  } from "react-redux";
-
+import lupita from "../assets/iconos/lupaNegra.png"
 
 const Products = () => {
 
@@ -110,7 +110,10 @@ const Products = () => {
            className='bg-slate-700/20 text-black rounded-2xl p-1' 
            value={searchParams}/>
 
-        <button className='font-lato text-2xl' onClick={()=>searchHandle()}>lupita</button>
+        <button className='font-lato text-2xl' onClick={()=>searchHandle()}>
+          <img src={lupita}/>
+        </button>
+
       </div>
           
       </div>

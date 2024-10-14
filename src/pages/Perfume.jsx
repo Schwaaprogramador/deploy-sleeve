@@ -21,7 +21,7 @@ const Perfume = () => {
             </div>
             
               <div className='flex items-center justify-center'>
-                <video autoPlay loop muted >
+                <video autoPlay loop muted className='h-screen'>
                   <source src={video} type="video/mp4" />
                   Tu navegador no soporta el elemento de video.
                 </video>
@@ -31,7 +31,7 @@ const Perfume = () => {
               Abrazo Frutado
             </div>
 
-            <div className='bg-sec4 lg:bg-pc_sec3 w-screen h-screen bg-center bg-no-repeat bg-cover flex justify-center items-center text-yellow-500 font-jose text-5xl'>
+            <div className='bg-sec4 lg:bg-pc_sec3 w-screen h-screen bg-center bg-no-repeat bg-cover flex justify-center items-center text-yellow-500 font-jose text-5xl lg:text-9xl'>
               Golden Gold
             </div>
 
