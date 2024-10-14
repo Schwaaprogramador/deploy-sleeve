@@ -16,7 +16,7 @@ const Navbar = () => {
     },[])
 
   return (
-    <div className='w-[250px] h-[400px] lg:h-screen  lg:w-[50%] left-0 top-0 fixed bg-white text-black flex flex-col px-6'>
+    <div className='w-[250px] h-screen lg:h-screen  lg:w-[30%] left-0 top-0 fixed bg-white text-black flex flex-col px-6'>
 
             <div className='w-full'>
                 <button onClick={()=> dispatch(closeNavbar())} className='pt-9'>

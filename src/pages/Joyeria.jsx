@@ -17,12 +17,12 @@ const Joyeria = () => {
   return (
     <div className='w-screen'>
         <DefaultLayout>
-            <div className='w-screen h-[422px] bg-cover lg:h-[500px] bg-no-repeat bg-joyeria-alta lg:bg-pc_joyeria-alta flex justify-center items-center text-white font-jose text-5xl'>
+            <div className='w-screen h-[422px] bg-cover lg:h-[500px] bg-no-repeat bg-joyeria-alta lg:bg-pc_joyeria-alta flex justify-center items-center text-white font-jose text-5xl lg:text-8xl'>
                 <button onClick={redirectToWhatsApp}>
                   ALTA JOYERIA
                 </button>
               </div>
-            <div className='w-screen h-[422px] bg-cover lg:h-[500px] bg-no-repeat bg-joyeria lg:bg-pc_joyeria flex justify-center items-center text-white font-jose text-5xl'>JOYERIA</div>
+            <div className='w-screen h-[422px] bg-cover lg:h-[500px] bg-no-repeat bg-joyeria lg:bg-pc_joyeria flex justify-center items-center text-white font-jose text-5xl lg:text-8xl'>JOYERIA</div>
 
         </DefaultLayout>
     </div>

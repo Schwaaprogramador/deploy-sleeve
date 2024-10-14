@@ -5,10 +5,16 @@ const Home = () => {
   return (
     <DefaultLayout>
         <div class="w-screen flex flex-col justify-center items-center ">
-        
-           
+
                 {/* <!-- ------PRIMERA SECCION-------- --> */}
                 <div class="bg-homeFirtsSection bg-cover w-full h-[500px] lg:bg-homePCFirtsSection lg:h-screen flex justify-center items-end">
+                    <a href="/tienda" className='flex justify-center mb-28 items-center text-white font-jose text-5xl lg:text-8xl hover:text-black'>                    
+                     INSCRIBETE
+                    </a>
+                </div>
+           
+                {/* <!-- ------PRIMERA SECCION-------- --> */}
+                <div class="bg-landingBackgroundMobile lg:bg-landingBackgroundPC bg-center bg-cover w-full h-[500px] lg:h-screen flex justify-center items-end">
                     <a href="/tienda" className='flex justify-center mb-28 items-center text-white font-jose text-5xl lg:text-8xl hover:text-black'>                    
                         SHOP NOW
                     </a>

@@ -37,7 +37,7 @@ const Variants = ({id, tittle, img}) => {
 
                 <button onClick={() => handlerSelected()}>
                   {tittle}
-                  <img src={img} className='rounded-xl w-[150px]'/>                
+                  <img src={img} className=' w-[150px]'/>                
                 </button>
 
                 <button onClick={()=> agregarItemAlCarrito()} className='rounded-full p-2 font-lato text-black border-2 bg-transparent'>Agregar</button>

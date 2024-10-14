@@ -6,6 +6,9 @@ const link = 'https://www.youtube.com/watch?v=0dFz10R529g&list=RDkebwTsRZ7bs&ind
 
 import video from '../assets/perfumeImages/video.mp4'
 
+//http://localhost:5173/productDetail/GOLDEN%20GOLD
+
+
 const Perfume = () => {
   return (
     <div className='w-screen'>
@@ -16,12 +19,12 @@ const Perfume = () => {
             </div>
             
             <div className='bg-sec2 bg-fixed w-full lg:bg-pc_sec2 h-screen bg-no-repeat bg-cover flex justify-center lg:justify-end items-center text-black font-jose text-5xl lg:text-6xl p-5'>
-              En la expasion <br/>
+              En la expasión <br/>
               hay brillo
             </div>
             
               <div className='flex items-center justify-center'>
-                <video autoPlay loop muted className='h-screen'>
+                <video autoPlay loop>
                   <source src={video} type="video/mp4" />
                   Tu navegador no soporta el elemento de video.
                 </video>

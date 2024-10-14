@@ -1,6 +1,9 @@
 
 //El id del variante es el que se le pasa al carrito
 // Traer todos los productos ♪
+
+//REVERSE ITEMS
+// VERIFICAR EL STACK
 export const productQuery = `
 query getProducts {
   products(first: 250) {
@@ -31,10 +34,11 @@ query getProducts {
 export const productQueryDetail = `
 query getProducto($productId: ID!){
   product(id: $productId) {
-    variants(first: 10) {
+    variants(first: 250) {
       nodes {
         id
         title
+        availableForSale
         image {
           url
         }

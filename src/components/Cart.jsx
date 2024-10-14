@@ -33,7 +33,7 @@ const Cart = () => {
 
 
   return (
-    <div className='w-screen lg:w-1/2 absolute overflow-auto right-0 top-0 bg-white text-black flex flex-col justify-start items-center px-6 h-screen drop-shadow-xl'>
+    <div className='w-screen lg:w-1/3 absolute overflow-auto right-0 top-0 bg-white text-black flex flex-col justify-start items-center px-6 h-screen drop-shadow-xl'>
 
         <div className='flex w-full flex-row-reverse p-5'>        
               <button onClick={()=> dispatch(closeCart())} className='text-2xl'> X  </button>              

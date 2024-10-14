@@ -18,8 +18,8 @@ export function App() {
    <>
       <Scroll/>
     <Routes>
-      <Route exact path="/" element={<Landing />} />
-      <Route exact path="/home" element={<Home />} />
+      {/* <Route exact path="/" element={<Landing />} /> */}
+      <Route exact path="/" element={<Home />} />
       <Route exact path="/tienda" element={<Tienda />} />
       <Route exact path="/boutique" element={<Boutique />} />
       <Route exact path="/joyeria" element={<Joyeria />} />

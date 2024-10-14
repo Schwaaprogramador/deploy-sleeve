@@ -10,15 +10,14 @@ const Footer = () => {
        </div> */}
 
        <div className='flex flex-col lg:flex-row lg:gap-6'>
-        <p>Mi pedido</p>
-        <p>Tarjetas de Regalo</p>
-        <p>Quienes Somos</p>
+        <p>Rastrear mi pedido</p>
+        <p>Tarjetas de Regalo</p>       
         <p>Terminos y condiciones</p>
         <p>PQRSD</p>
        </div>
 
        <div className='flex flex-col lg:flex-row lg:gap-6'>
-        <a href="">3013868156</a><a href="">3013868156</a>
+        <a href="">+57 3504651680</a>
        </div>
 
     </div>
