@@ -40,7 +40,7 @@ const Variants = ({id, tittle, img, avaible, altaJoyeria, precio}) => {
                 
                 { altaJoyeria ? <button onClick={()=>redirectToWhatsApp()}>Comprar con Asesor</button> 
                 : avaible ? 
-                <button onClick={()=> agregarItemAlCarrito()} className='rounded-full p-2 font-lato text-black border-2 bg-transparent'>Agregar</button> 
+                <button onClick={()=> agregarItemAlCarrito()} className='rounded-full p-2 font-lato hover:text-blue-500 text-black active:text-white border-2 bg-transparent'>Agregar</button> 
                 :
                 <p className="p-2 text-red-600 font-lato">Sold Out</p>
                 }

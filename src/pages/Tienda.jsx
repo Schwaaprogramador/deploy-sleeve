@@ -8,7 +8,7 @@ const Tienda = () => {
     <DefaultLayout>
         <div className='mb-20'>
 
-            <div class="bg-homeFirtsSection bg-fixed bg-center bg-cover w-screen h-[500px] flex flex-col justify-center items-center">                            
+            <div class="bg-homeFirtsSection bg-fixed bg-center lg:bg-center bg-cover w-screen h-[350px] flex flex-col justify-center items-center">                            
                     <p class="font-jose text-white text-5xl">TIENDA</p>                
             </div> 
 

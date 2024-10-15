@@ -21,31 +21,31 @@ const Perfume = () => {
             </div>
             
             <div className='bg-sec2 bg-fixed w-full lg:bg-pc_sec2 h-screen bg-no-repeat bg-cover flex justify-center lg:justify-end items-center '>
-              <div className='flex flex-col items-center justify-center mr-24'>
+              <div className='flex flex-col items-center justify-center lg:mr-24'>
               <p className='text-black font-jose text-5xl lg:text-6xl p-5'>
                 En la expasión <br/>
                 hay brillo
 
               </p>
               
-              <NavLink to={`/productDetail/${uri}`} className='w-32 flex justify-center items-center border-2 font-lato p-2 text-white'>               
+              <NavLink to={`/productDetail/${uri}`} className='w-32 flex justify-center items-center border-2 font-lato p-2 text-white bg-white/20'>               
                 Comprar Ahora                
               </NavLink>
               </div>
             </div>
             
               <div className='flex items-center justify-center'>
-                <video autoPlay loop className='w-screen'>
+                <video autoPlay loop className='lg:w-screen'>
                   <source src={videopc} type="video/mp4"/>
                   Tu navegador no soporta el elemento de video.
                 </video>
               </div>
 
             <div className='bg-sec2 bg-fixed lg:bg-pc_sec2 w-full h-screen bg-no-repeat bg-cover flex justify-center lg:justify-start items-center '>
-            <div className='flex flex-col items-center justify-center mr-24'>
+            <div className='flex flex-col items-center justify-center lg:mr-24'>
              <p className='text-black font-jose text-5xl lg:text-6xl p-5'> Abrazo Frutado </p>
-              <NavLink to={`/productDetail/${uri}`} className='w-32 flex justify-center items-center border-2 border-black font-lato p-2 text-black'>               
-                comprar ahora                
+              <NavLink to={`/productDetail/${uri}`} className='w-32 flex justify-center items-center border-2 border-black font-lato p-2 text-black lg:bg-black/20'>               
+                Comprar Ahora               
               </NavLink>
               
             </div>

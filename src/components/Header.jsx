@@ -2,7 +2,7 @@
 import { useSelector, useDispatch  } from "react-redux";
 import { showNavbar, closeNavbar } from '../redux/navbarSlice';
 import { useEffect } from 'preact/hooks';
-
+import ojito from '../assets/news/ojo_nav.png'
 import Navbar from './Navbar';
 import { createCartId, openCart } from "../redux/cartSlice";
 import Cart from "./Cart";
@@ -10,6 +10,9 @@ import { createCarrito } from '../shopify/ShopifyFetchs';
 import Hambur from '../assets/navbarImages/menuHamburguesaNegro.png'
 import bag from '../assets/navbarImages/carritoNegro.png'
 import Alerta from "../helpers/Alerta";
+
+
+
 
 function Header() {
 
@@ -42,7 +45,7 @@ function Header() {
 
 
   return (
-    <div className="w-screen fixed bg-white/50 flex justify-between px-10 ">
+    <div className="w-screen fixed bg-white/50 flex justify-between px-10 top-0">
 
                 <div className="text-white p-2">
                        { navbarShow.status ? <Navbar/> : null }
@@ -51,8 +54,12 @@ function Header() {
                         { navbarShow.status ? null : <img src={Hambur}/> }              
                       </button>
                 </div>
+
+                <div className="flex justify-center items-center">
+                  <img src={ojito} className="w-20"/>
+                </div>
                 
-                <div className="text-white p-2 flex justify-end w-full">                    
+                <div className="text-white p-2 flex justify-end">                    
                       { cartShow.status ? <Cart/> : null }
 
                     <button onClick={() => dispatch(openCart())}>
@@ -66,6 +73,7 @@ function Header() {
                     </button>                     
 
                 </div>
+                
              
                 { alarma ? <Alerta/> : null }
                
