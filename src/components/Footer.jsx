@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ojito from '../assets/news/ojo_nav.png'
-
+import iconIg from "../assets/news/ig.png";
+import iconTiktok from "../assets/news/tiktok.png";
 
 
 const Footer = () => {
@@ -36,6 +37,18 @@ const Footer = () => {
 
        <div className="flex justify-center items-center">
           <img src={ojito} className="w-20"/>
+        </div>
+
+
+        <div className='flex gap-6'>        
+
+          <div class=" flex xl:flex-row items-center">
+            <img src={iconIg} alt="icono de instagram" class="w-8"/>				
+          </div>
+
+          <div class=" flex xl:flex-row items-center">
+            <img src={iconTiktok} alt="icono de tiktok" class="w-8"/>
+          </div>
         </div>
 
     </div>
