@@ -1,18 +1,24 @@
 import { fetchProductos, filterProducts, getCategorias, searchProducts } from '../shopify/ShopifyFetchs'
 import { useEffect, useState } from 'react'
 import Product from './Product';
-import { useSelector  } from "react-redux";
+import { useSelector, useDispatch  } from "react-redux";
 import lupita from "../assets/iconos/lupaNegra.png"
+import { closeSearchBar, setSearchParams } from '../redux/searchSlice';
 
 const Products = () => {
 
+    const dispatch = useDispatch()
 
     const [ products, setProducts ] = useState('');
     const [ filteredProducts, setFilteredProducts ] = useState('');
     const [ collection , setCollection ] = useState('');
     const [ selectedValue, setSelectedValue ] = useState('');
     const collectionValue = useSelector(state => state.product.collectionValue);
-    const [ searchParams , setSearchParams ] = useState('');
+
+    const searchParams = useSelector(state => state.searchBar.searchParams);
+    const [ search, setSearch] = useState('');
+
+    console.log(searchParams)
 
 
     const clearSelectedValue = () => {
@@ -21,26 +27,27 @@ const Products = () => {
       feche();
     }
 
+
     const handleChange = async (event) => {
 
       setSelectedValue(event.target.value);
-      setSearchParams('');
+      dispatch(setSearchParams(''));
       const productosFiltered = await filterProducts({collection:event.target.value});
       if(productosFiltered){
         setFilteredProducts(productosFiltered.data.collections.nodes);
       }
-
     };
 
 
-    const searchHandle = async () => {
-
+    const searchHandle = async (param) => {
+      
       setSelectedValue('');
-      const productosFiltered = await searchProducts({query:searchParams});
-      if(productosFiltered.data?.search?.nodes.length==''){
+      dispatch(setSearchParams(param));
 
+      const productosFiltered = await searchProducts({query:param});
+      if(productosFiltered.data?.search?.nodes.length==''){
         alert('No se encontro ningun producto');
-        setSearchParams('');
+        dispatch(setSearchParams(''));
       }    
       if(productosFiltered){
         setFilteredProducts(productosFiltered.data?.search?.nodes);        
@@ -48,22 +55,23 @@ const Products = () => {
       
     }
 
-    const handleSearch = (e) => {
-      setSearchParams(e.target.value);
-    };
-
 
     const feche = async () => {
       const productos =  await fetchProductos();
       if(productos){
         setProducts(productos.data?.products.nodes)
-      }
-      
+      }      
     }
 
 
-
     useEffect(()=>{
+
+      //Si hay searchparams => Ejecutar el handle
+      if(searchParams){
+        searchHandle(searchParams);
+        setSearch(searchParams)
+        dispatch(closeSearchBar());
+      }
 
       if(collectionValue) {
           const checkCollection =async()=>{       
@@ -76,21 +84,21 @@ const Products = () => {
         
           checkCollection();
 
-      } else {  
-          
+      } else {          
           feche();
       }    
      
-        const fecheCollection = async () => {
+
+      const fecheCollection = async () => {
           const collections =  await getCategorias()
           if(collections) {
             setCollection(collections.data.collections)
           }
         }
-        fecheCollection();
+      fecheCollection();
 
 
-    },[products])
+    },[])
 
 
 
@@ -111,13 +119,13 @@ const Products = () => {
 
       <div className='flex gap-2'>
         <input 
-          onChange={handleSearch} 
-          type='text'
+           onChange={(e) => setSearch(e.target.value)} 
+           type='text'
            placeholder="Buscar..." 
            className='bg-slate-700/20 text-black rounded-2xl p-1' 
-           value={searchParams}/>
+           value={search}/>
 
-        <button className='font-lato text-2xl' onClick={()=>searchHandle()}>
+        <button className='font-lato text-2xl' onClick={()=>searchHandle(search)}>
           <img src={lupita}/>
         </button>
       </div>

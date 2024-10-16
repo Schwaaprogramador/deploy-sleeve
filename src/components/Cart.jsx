@@ -13,7 +13,6 @@ const Cart = () => {
     const [ cart, setCart ] = useState('');
     const cartId = useSelector(state => state.cart.id);
     
-    console.log(cartId)
 
   useEffect(() => {
 

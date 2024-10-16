@@ -5,7 +5,7 @@ import Scroll from '../helpers/Scroll';
 import whatapp from '../assets/news/whatsapp.png'
 
 const redirectToWhatsApp = () => {
-  const phoneNumber = '523127720217';  // Número de teléfono en formato internacional
+  const phoneNumber = '573504651680';  // Número de teléfono en formato internacional
   const message = '¡Hola! Estoy interesado en más información.';  // Mensaje predefinido
   const encodedMessage = encodeURIComponent(message);
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -24,9 +24,9 @@ const DefaultLayout = ({children}) => {
             {children}
         </div>
 
-        <div className='fixed bottom-0 right-0 p-5'>
+        <div className='fixed bottom-0 right-0 p-3'>
           <button onClick={()=>redirectToWhatsApp()}>
-            <img src={whatapp} className='w-10'/>
+            <img src={whatapp} className='w-14 hover:w-16 active:w-12'/>
           </button>
         </div>
 

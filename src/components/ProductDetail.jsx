@@ -76,12 +76,12 @@ const ProductDetail = () => {
       <DefaultLayout>
         <div className=' flex flex-col justify-center items-center'>  
 
-          <div className='flex flex-col lg:flex-row lg:my-16 lg:w-[1000px]'>
+          <div className='flex flex-col lg:flex-row items-center lg:my-16 lg:w-[1000px]'>
 
-              <img src={producto?.images?.nodes[0].url} className='w-screen lg:w-2/3 '/>
+              <img src={producto?.images?.nodes[0].url} className='w-screen lg:w-1/2 lg:h-1/2'/>
 
-              <div className='w-screen my-10 flex flex-col justify-center items-center'>
-                <p className='p-10 text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
+              <div className='w-screen lg:h-1/3 my-10 flex flex-col justify-center items-center'>
+                <p className='p-5 text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
                 <p className='p-10'>{ producto.description ? insertarSaltosDeLinea(producto.description) : ""}</p>      
                 <p className='p-10 text-2xl lg:text-3xl font-jose'>Precio: {producto?.variants?.nodes[0].price.amount }</p>   
               </div>
@@ -89,7 +89,7 @@ const ProductDetail = () => {
           </div>
 
 
-            {/* <p className='text-3xl font-lato text-black'>Variantes</p> */}
+           
             
             <div className='flex flex-wrap'>   
 

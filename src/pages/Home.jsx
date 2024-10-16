@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <DefaultLayout>
-        <div class="w-screen flex flex-col justify-center items-center ">
+        <div class="max-w-screen flex flex-col justify-center items-center ">
 
                 {/* <!-- ------PRIMERA SECCION-------- --> */}
-                <div class="bg-homeInscribete bg-cover w-full h-[500px]  lg:h-screen flex justify-center items-end">
+                <div class="bg-homeInscribete bg-cover max-w-screen w-full h-[500px]  lg:h-screen flex justify-center items-end">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSemdp0QQjfXkamP4jO5sXDQAoo3dz7xH06EKOk0iDd58PD_kg/viewform" target='blank' className='flex justify-center mb-28 items-center text-white font-jose text-5xl lg:text-8xl hover:text-black'>                    
                      INSCRIBETE
                     </a>
