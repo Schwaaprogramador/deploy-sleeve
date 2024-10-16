@@ -18,8 +18,6 @@ const Products = () => {
     const searchParams = useSelector(state => state.searchBar.searchParams);
     const [ search, setSearch] = useState('');
 
-    console.log(searchParams)
-
 
     const clearSelectedValue = () => {
       setSelectedValue('');
@@ -84,7 +82,9 @@ const Products = () => {
         
           checkCollection();
 
-      } else {          
+      } 
+
+      if(!collectionValue && !searchParams) {          
           feche();
       }    
      

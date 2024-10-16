@@ -71,8 +71,9 @@ function Header() {
                 </div>
                 
                 <div className="text-white p-2 flex justify-end items-center">
+
                       { searchBar ? <SearchBar/> : 
-                        <div>
+                        <div className="flex justify-center items-center">
                           <button onClick={()=>dispatch(showSearchBar())}>
                             <img src={lupita}/>
                           </button>

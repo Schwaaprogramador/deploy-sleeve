@@ -14,7 +14,7 @@ const SearchBar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [ search, setSearch] = useState('');
+    const [ search, setSearch ] = useState('');
 
     const handlerSetSearchParams = () => {
         
@@ -43,9 +43,9 @@ const SearchBar = () => {
                     <img src={lupita}/>
                 </button>
 
-            <button onClick={()=>dispatch(closeSearchBar())} className='text-black font-jose  text-xl lg:text-5xl flex items-center justify-center'> 
-                    x
-            </button>
+                <button onClick={()=>dispatch(closeSearchBar())} className='text-black font-jose  text-xl lg:text-5xl flex items-center justify-center'> 
+                        x
+                </button>
             </div>
             
         </form>
