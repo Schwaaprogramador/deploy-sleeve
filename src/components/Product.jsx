@@ -11,6 +11,7 @@ const Product = ({id, title, precio, img}) => {
     }
 
     const uri = encodeURIComponent(id);
+    
   return (
     <div className='w-[170px] mt-9 lg:w-[350px]'>
             <NavLink to={`/productDetail/${uri}`} className='flex flex-col items-center gap-3' onClick={setId}>

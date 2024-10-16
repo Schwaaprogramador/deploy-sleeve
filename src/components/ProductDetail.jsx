@@ -7,6 +7,15 @@ import Recomendados from './Recomendados';
 import { useParams } from 'react-router-dom';
 
 
+
+function insertarSaltosDeLinea(texto) {  
+  return texto.split(/(?=[A-Z])/).map((parte) => (
+    <p>{parte}<br/></p>
+));
+}
+
+
+
 const ProductDetail = () => {  
 
   const navigate = useNavigate();
@@ -26,6 +35,7 @@ const ProductDetail = () => {
       }})     
 }
   
+
   
  
   useEffect(() => {
@@ -55,7 +65,7 @@ const ProductDetail = () => {
     }
     recomendadosProductos();
 
-    
+
     
  
   }, [decodedId])
@@ -72,7 +82,7 @@ const ProductDetail = () => {
 
               <div className='w-screen my-10 flex flex-col justify-center items-center'>
                 <p className='p-10 text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
-                <p className='p-10'>{producto.description}</p>      
+                <p className='p-10'>{ producto.description ? insertarSaltosDeLinea(producto.description) : ""}</p>      
                 <p className='p-10 text-2xl lg:text-3xl font-jose'>Precio: {producto?.variants?.nodes[0].price.amount }</p>   
               </div>
 

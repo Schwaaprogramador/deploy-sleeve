@@ -32,7 +32,7 @@ const Variants = ({id, tittle, img, avaible, altaJoyeria, precio}) => {
 
   
   return (
-    <div className={`bg-slate-50 flex flex-col items-center justify-center p-5 rounded-3xl gap-2`}>                
+    <div className={` flex flex-col items-center justify-center p-5 rounded-3xl gap-2`}>                
 
                   {tittle}
                   <img src={img} className=' w-[150px] rounded-2xl'/>

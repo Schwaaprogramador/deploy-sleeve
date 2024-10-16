@@ -12,7 +12,6 @@ export const createCart = `mutation MyMutation {
 
 
 //BUSCAR EL CARRITO YA CREADO ♪
-//{"cartId": "gid://shopify/Cart/Z2NwLXVzLW"}
 export const getCart = `
 query getCarrito($cartId: ID!) {
   cart(id: $cartId) {

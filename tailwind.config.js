@@ -43,6 +43,7 @@ export default {
 				// ------JOYERIA BACKGROUNDS--------
 				"joyeria":"url('/src/assets/news/joyeria2.jpg')",
 				"joyeria-alta":"url('/src/assets/news/altaJoyeria.jpg')",
+				"cuidadojoyas":"url('/src/assets/news/cuidadojoyas.jpg')",
 				"pc_joyeria-alta":"url('/src/assets/joyeriaImages/pc_altajoyeria.jpg')",
 				"pc_joyeria":"url('/src/assets/joyeriaImages/pc_joyeria.jpg')",
 

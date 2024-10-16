@@ -16,7 +16,7 @@ const Home = () => {
                 </div>
            
                 {/* <!-- ------PRIMERA SECCION-------- --> */}
-                <div class="bg-homeFirtsSection  bg-center bg-cover w-full h-[500px] lg:h-screen flex justify-center items-end">
+                <div class="bg-homeFirtsSection  bg-center bg-cover w-full h-[500px] lg:h-screen flex justify-center items-center">
                     <Link to="/tienda" className='flex justify-center mb-28 items-center text-white font-jose text-5xl lg:text-8xl hover:text-black'>                    
                         SHOP NOW
                     </Link>

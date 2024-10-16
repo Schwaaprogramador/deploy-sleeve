@@ -10,7 +10,7 @@ import { createCarrito } from '../shopify/ShopifyFetchs';
 import Hambur from '../assets/navbarImages/menuHamburguesaNegro.png'
 import bag from '../assets/navbarImages/carritoNegro.png'
 import Alerta from "../helpers/Alerta";
-
+import { Link } from 'react-router-dom';
 
 
 
@@ -45,7 +45,7 @@ function Header() {
 
 
   return (
-    <div className="w-screen fixed bg-white/50 flex justify-between px-10 top-0">
+    <div className="w-screen fixed bg-white/50 flex justify-between lg:px-10 top-0">
 
                 <div className="text-white p-2">
                        { navbarShow.status ? <Navbar/> : null }
@@ -56,7 +56,9 @@ function Header() {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <img src={ojito} className="w-20"/>
+                  <Link to="/">                
+                    <img src={ojito} className="w-20"/>
+                  </Link>
                 </div>
                 
                 <div className="text-white p-2 flex justify-end">                    

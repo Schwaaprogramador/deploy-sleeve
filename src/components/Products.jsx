@@ -15,6 +15,12 @@ const Products = () => {
     const [ searchParams , setSearchParams ] = useState('');
 
 
+    const clearSelectedValue = () => {
+      setSelectedValue('');
+      setFilteredProducts('');
+      feche();
+    }
+
     const handleChange = async (event) => {
 
       setSelectedValue(event.target.value);
@@ -47,6 +53,15 @@ const Products = () => {
     };
 
 
+    const feche = async () => {
+      const productos =  await fetchProductos();
+      if(productos){
+        setProducts(productos.data?.products.nodes)
+      }
+      
+    }
+
+
 
     useEffect(()=>{
 
@@ -61,17 +76,9 @@ const Products = () => {
         
           checkCollection();
 
-      } else {
-              
-          const feche = async () => {
-            const productos =  await fetchProductos();
-            if(productos){
-              setProducts(productos.data?.products.nodes)
-            }
-            
-          }
+      } else {  
+          
           feche();
-
       }    
      
         const fecheCollection = async () => {
@@ -83,7 +90,7 @@ const Products = () => {
         fecheCollection();
 
 
-    },[])
+    },[products])
 
 
 
@@ -91,17 +98,18 @@ const Products = () => {
   return (
     <div className='flex flex-col items-center justify-center gap-3 mt-5'>
 
-      <div className='flex flex-col lg:flex-row gap-10'>
+      <div className='flex flex-col items-center lg:flex-row gap-10'>
 
-        <div className='flex gap-10'>
+        <div className='flex gap-6'>
           <label for="pet-select">Choose a filter:</label>
           <select value={selectedValue} name="filter" onChange={handleChange}>
             {collection ? collection.nodes.map(item => <option value={item.title}>{item.title}</option>) : <p>cargando</p>}
           </select>
-
+          {selectedValue ? <button onClick={()=>clearSelectedValue()}>Clear Filter</button> : null }
+          
         </div>
 
-          <div className='flex gap-2'>
+      <div className='flex gap-2'>
         <input 
           onChange={handleSearch} 
           type='text'
@@ -112,7 +120,6 @@ const Products = () => {
         <button className='font-lato text-2xl' onClick={()=>searchHandle()}>
           <img src={lupita}/>
         </button>
-
       </div>
           
       </div>
