@@ -15,7 +15,7 @@ const redirectToWhatsApp = () => {
 
 const DefaultLayout = ({children}) => {
   return (
-    <div> 
+    <div className='w-svw overflow-hidden'> 
       <Scroll/>
 
       <Header/>

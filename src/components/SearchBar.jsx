@@ -19,7 +19,7 @@ const SearchBar = () => {
     const navigate = useNavigate();
     
     const [ search, setSearch ] = useState('');
-    console.log(match)
+    
     const handlerSetSearchParams = () => {
         
         dispatch(setSearchParams(search));

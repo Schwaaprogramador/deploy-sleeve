@@ -10,7 +10,7 @@ const Home = () => {
 
                 {/* <!-- ------PRIMERA SECCION-------- --> */}
                 <div class="bg-homeInscribete bg-cover max-w-screen w-full h-[500px]  lg:h-screen flex justify-center items-end">
-                    <Link to="/convocatoria" className='flex justify-center mb-28 items-center text-white font-jose text-5xl lg:text-8xl hover:text-black'>                    
+                    <Link to="/convocatoria" className='flex justify-center mb-28 items-center text-white font-jose text-4xl lg:text-8xl hover:text-black'>                    
                         CONVOCATORIA
                     </Link>
                 </div>

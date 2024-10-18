@@ -14,6 +14,18 @@ function insertarSaltosDeLinea(texto) {
 ));
 }
 
+function addCommas(nStr){
+  nStr += '';
+	let x = nStr.split('.');
+	let x1 = x[0];
+	let x2 = x.length > 1 ? '.' + x[1] : '';
+	let rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
+
 
 
 const ProductDetail = () => {  
@@ -27,10 +39,8 @@ const ProductDetail = () => {
   
 
   const checkAltaJoyeria = () => {      
-    producto?.collections?.nodes.map( item => {
-      console.log(item)
-      if(item.title == 'Alta joyería'){
-        console.log(item)
+    producto?.collections?.nodes.map( item => {      
+      if(item.title == 'Alta joyería'){        
         setAltaJoyeria(true)
       }})     
 }
@@ -83,7 +93,7 @@ const ProductDetail = () => {
               <div className='w-screen lg:h-1/3 my-10 flex flex-col justify-center items-center'>
                 <p className='p-5 text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
                 { producto.description ? insertarSaltosDeLinea(producto.description) : ""} 
-                <p className='p-10 text-2xl lg:text-3xl font-path'>Precio: {producto?.variants?.nodes[0].price.amount }</p>   
+                <p className='p-10 text-2xl lg:text-3xl font-path'>Precio: ${addCommas(producto?.variants?.nodes[0].price.amount) }</p>   
               </div>
 
           </div>

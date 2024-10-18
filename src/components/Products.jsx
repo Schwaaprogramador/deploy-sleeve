@@ -66,7 +66,7 @@ const Products = () => {
       }      
     }
 
-    console.log(searchParams);
+    
 
     useEffect(()=>{
       //Si hay searchparams => Ejecutar el handle
