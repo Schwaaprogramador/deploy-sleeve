@@ -14,7 +14,8 @@ import { Link } from 'react-router-dom';
 import SearchBar from "./SearchBar";
 import { showSearchBar } from "../redux/searchSlice";
 import lupita from "../assets/iconos/lupaNegra.png"
-
+import { CiSearch , CiShoppingCart} from "react-icons/ci";
+import { CiMenuBurger } from "react-icons/ci";
 
 function Header() {
 
@@ -60,13 +61,13 @@ function Header() {
                        { navbarShow.status ? <Navbar/> : null }
 
                       <button onClick={() => dispatch(showNavbar())}>
-                        { navbarShow.status ? null : <img src={Hambur}/> }              
+                        { navbarShow.status ? null : <CiMenuBurger className="text-black text-3xl"/> }              
                       </button>
                 </div>
 
                 <div className="flex justify-center items-center">
                   <Link to="/">                
-                    <img src={ojito} className="w-20"/>
+                    <img src={ojito} className="w-20 active:w-16"/>
                   </Link>
                 </div>
                 
@@ -75,7 +76,7 @@ function Header() {
                       { searchBar ? <SearchBar/> : 
                         <div className="flex justify-center items-center">
                           <button onClick={()=>dispatch(showSearchBar())}>
-                            <img src={lupita}/>
+                            <CiSearch className="text-black text-3xl"/>
                           </button>
                         </div>
                       }
@@ -86,7 +87,7 @@ function Header() {
                       { cartShow.status ? null :  
                       <div className="flex gap-0">
                         {contador !=0 ? <p className="bg-red-700 h-5 w-5 rounded-full flex items-center justify-center">{contador}</p> : null }
-                        <img src={bag}/> 
+                        <CiShoppingCart className="text-black text-3xl"/> 
                       </div>                      
                       }             
                     </button>                     

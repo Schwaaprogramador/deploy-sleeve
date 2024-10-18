@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'preact/hooks'
 import { closeCart } from '../redux/cartSlice'
 import { useDispatch  } from "react-redux";
-import { getCarritoCreado } from '../shopify/ShopifyFetchs';
+import { getCarritoCreado, removeItemAlCarrito } from '../shopify/ShopifyFetchs';
 import { useSelector  } from "react-redux";
 import { closeNavbar } from '../redux/navbarSlice';
-
+import { CiTrash } from "react-icons/ci";
 
 const Cart = () => {
 
@@ -12,7 +12,15 @@ const Cart = () => {
 
     const [ cart, setCart ] = useState('');
     const cartId = useSelector(state => state.cart.id);
-    
+   
+    console.log(cart)
+    console.log(cartId)
+    const handleRemoveItem = async (linesId) => {
+      console.log(linesId)
+      await removeItemAlCarrito({cartId, linesId})
+      dispatch(closeCart());
+      alert('item eliminado')
+    }
 
   useEffect(() => {
 
@@ -46,11 +54,13 @@ const Cart = () => {
             cart.lines?.edges ? cart.lines.edges.map( item => (
               <div className='flex flex-col items-center lg:flex-row justify-center gap-2'>
                 
-                <img src={item.node.merchandise?.image.url} className='w-[100px] lg:w-[150px]'/>
+                <img src={item.node.merchandise?.image.url} className='w-[150px]'/>
                 <p>{item.node.merchandise.title}</p>
                 <p>x{item.node.quantity}</p>
                 <p>{item.node.merchandise?.price.amount}</p>
-
+                <button onClick={()=>handleRemoveItem(item.node.merchandise?.id)}>
+                  <CiTrash  className="text-black text-3xl"/>
+                </button>
               </div>
 
           )) : <p className='text-2xl'>Carrito vacio</p>

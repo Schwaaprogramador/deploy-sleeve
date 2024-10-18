@@ -1,4 +1,3 @@
-import { useState } from "preact/hooks"
 import { addItemAlCarrito } from '../shopify/ShopifyFetchs';
 import { useSelector  } from "react-redux";
 import { useDispatch  } from "react-redux";

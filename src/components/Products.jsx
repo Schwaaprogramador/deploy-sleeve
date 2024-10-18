@@ -5,6 +5,10 @@ import { useSelector, useDispatch  } from "react-redux";
 import lupita from "../assets/iconos/lupaNegra.png"
 import { closeSearchBar, setSearchParams } from '../redux/searchSlice';
 
+
+
+
+
 const Products = () => {
 
     const dispatch = useDispatch()
@@ -12,12 +16,13 @@ const Products = () => {
     const [ products, setProducts ] = useState('');
     const [ filteredProducts, setFilteredProducts ] = useState('');
     const [ collection , setCollection ] = useState('');
-    const [ selectedValue, setSelectedValue ] = useState('');
+    const [ selectedValue, setSelectedValue ] = useState('');//Filtro selectionado
     const collectionValue = useSelector(state => state.product.collectionValue);
 
     const searchParams = useSelector(state => state.searchBar.searchParams);
     const [ search, setSearch] = useState('');
 
+    console.log(searchParams);
 
     const clearSelectedValue = () => {
       setSelectedValue('');
@@ -26,6 +31,7 @@ const Products = () => {
     }
 
 
+      //Filtros
     const handleChange = async (event) => {
 
       setSelectedValue(event.target.value);
@@ -55,7 +61,7 @@ const Products = () => {
 
 
     const feche = async () => {
-      const productos =  await fetchProductos();
+      const productos = await fetchProductos();
       if(productos){
         setProducts(productos.data?.products.nodes)
       }      
@@ -98,7 +104,7 @@ const Products = () => {
       fecheCollection();
 
 
-    },[])
+    },[searchParams])
 
 
 
@@ -117,7 +123,7 @@ const Products = () => {
           
         </div>
 
-      <div className='flex gap-2'>
+      {/* <div className='flex gap-2'>
         <input 
            onChange={(e) => setSearch(e.target.value)} 
            type='text'
@@ -128,7 +134,7 @@ const Products = () => {
         <button className='font-lato text-2xl' onClick={()=>searchHandle(search)}>
           <img src={lupita}/>
         </button>
-      </div>
+      </div> */}
           
       </div>
 

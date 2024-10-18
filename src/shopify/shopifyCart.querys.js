@@ -74,3 +74,13 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
   }
 }
 `
+
+export const removeItemToCart = `
+mutation MyMutation($cartId: ID!, $linesId: ID!) {
+  cartLinesRemove(cartId: $cartId, lineIds: [$linesId]) {
+    warnings {
+      message
+    }
+  }
+}
+`

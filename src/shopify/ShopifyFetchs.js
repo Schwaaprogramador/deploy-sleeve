@@ -1,4 +1,4 @@
-import { addItemToCart, createCart, getCart } from "./shopifyCart.querys.js";
+import { addItemToCart, createCart, getCart, removeItemToCart } from "./shopifyCart.querys.js";
 import { getCollectionAll, getCollectionProducts } from "./shopifyCollections.querys.js";
 import { client } from "./shopifyConfig.querys.js";
 import { productQuery, productQueryDetail, productRecomendation } from "./shopifyProducts.querys.js";
@@ -117,8 +117,16 @@ export const addItemAlCarrito = async ({cartId ,variantId}) => {
 }
 
 //ELIMINAR PRODUCTOS DEL CARRITO
-
-
+export const removeItemAlCarrito = async ({cartId , linesId}) => {
+  const resP = await client.fetch(removeItemToCart, { variables:{cartId, linesId}}).then( res => {
+    if(res.ok){
+      return res.json()
+    } else {
+      return ' No se encontro el carrito pa';
+    }
+  })
+  return resP
+}
 
 
 

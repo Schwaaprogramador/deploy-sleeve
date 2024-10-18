@@ -31,7 +31,7 @@ const DefaultLayout = ({children}) => {
         </div>
 
       <Footer/>
-    </div>
+    </div>  
   )
 }
 
