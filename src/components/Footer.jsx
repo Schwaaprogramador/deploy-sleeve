@@ -73,7 +73,7 @@ const Footer = () => {
           <Link to='/shipping'>Shipping policy</Link>        
         </div>       
         <div className='flex flex-col lg:flex-row lg:gap-6'>
-          <p>PQRSD</p>        
+          <a href='https://docs.google.com/forms/d/e/1FAIpQLSdp-3OL0na9tyOARMq5DGqywl06wMgvxH4wngW1WBQB4GSe7w/viewform'>PQRSD</a>        
         </div>
 
       </div>   
