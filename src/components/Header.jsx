@@ -55,7 +55,7 @@ function Header() {
 
 
   return (
-    <div className="w-screen fixed bg-white/50 flex justify-between lg:px-10 top-0">
+    <div className="w-dvw fixed bg-white/50 flex justify-between lg:px-10 top-0">
 
                 <div className="text-white p-2">
                        { navbarShow.status ? <Navbar/> : null }

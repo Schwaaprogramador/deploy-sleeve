@@ -15,18 +15,17 @@ const Products = () => {
 
     const [ products, setProducts ] = useState('');
     const [ filteredProducts, setFilteredProducts ] = useState('');
-    const [ collection , setCollection ] = useState('');
-    const [ selectedValue, setSelectedValue ] = useState('');//Filtro selectionado
-    const collectionValue = useSelector(state => state.product.collectionValue);
+    const [ collection , setCollection ] = useState('');//todos los selecct
+    const [ selectedValue, setSelectedValue ] = useState('');//Filtro selectionado    
+    const collectionValue = useSelector(state => state.product.collectionValue); //Enlaces de afuera que filtran aca
 
-    const searchParams = useSelector(state => state.searchBar.searchParams);
-    const [ search, setSearch] = useState('');
+    const searchParams = useSelector(state => state.searchBar.searchParams);//parametros de busqueda
 
-    console.log(searchParams);
 
     const clearSelectedValue = () => {
       setSelectedValue('');
       setFilteredProducts('');
+      dispatch(setSearchParams(''));     
       feche();
     }
 
@@ -43,10 +42,10 @@ const Products = () => {
     };
 
 
+    //Busqueda
     const searchHandle = async (param) => {
       
-      setSelectedValue('');
-      dispatch(setSearchParams(param));
+      setSelectedValue('');      
 
       const productosFiltered = await searchProducts({query:param});
       if(productosFiltered.data?.search?.nodes.length==''){
@@ -67,14 +66,13 @@ const Products = () => {
       }      
     }
 
+    console.log(searchParams);
 
     useEffect(()=>{
-
       //Si hay searchparams => Ejecutar el handle
       if(searchParams){
-        searchHandle(searchParams);
-        setSearch(searchParams)
-        dispatch(closeSearchBar());
+        searchHandle(searchParams);        
+        dispatch(closeSearchBar());        
       }
 
       if(collectionValue) {
@@ -122,19 +120,12 @@ const Products = () => {
           {selectedValue ? <button onClick={()=>clearSelectedValue()}>Clear Filter</button> : null }
           
         </div>
+        
+        <div className='flex gap-4'>
+          { searchParams  ? <p>Busqueda: "{searchParams}"</p>: null }
+          { searchParams  ? <button onClick={()=>clearSelectedValue()}>Clear Filter</button> : null }
 
-      {/* <div className='flex gap-2'>
-        <input 
-           onChange={(e) => setSearch(e.target.value)} 
-           type='text'
-           placeholder="Buscar..." 
-           className='bg-slate-700/20 text-black rounded-2xl p-1' 
-           value={search}/>
-
-        <button className='font-lato text-2xl' onClick={()=>searchHandle(search)}>
-          <img src={lupita}/>
-        </button>
-      </div> */}
+        </div>
           
       </div>
 
@@ -143,7 +134,7 @@ const Products = () => {
 
 
     {/* TODOS LOS PRODUCTOS------------- */}
-      <div className='grid grid-cols-2 items-center justify-center gap-3 lg:grid-cols-3 lg:gap-10'>
+      <div className='grid grid-cols-2 md:grid-cols-3 items-center justify-center gap-3 lg:grid-cols-3 lg:gap-10'>
             { products && filteredProducts == '' ? 
             
                 products.map( item => (

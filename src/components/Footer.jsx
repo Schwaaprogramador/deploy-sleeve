@@ -5,51 +5,78 @@ import iconIg from "../assets/news/ig.png";
 import iconTiktok from "../assets/news/tiktok.png";
 
 
+const redirectToWhatsApp = () => {
+  const phoneNumber = '573504651680';  // Número de teléfono en formato internacional
+  const message = '¡Hola! Estoy interesado en más información.';  // Mensaje predefinido
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  // Redirigir a la URL de WhatsApp
+  window.location.href = whatsappURL;
+};
+
+
+
 const Footer = () => {
   return (
-    <div className="w-screen h-[300px] gap-3 lg:h-[200px] bg-white bg-cover bg-center bg-no-repeat flex flex-col items-center justify-start py-10 text-black font-lato text-xs">
-       
-       {/* <div className='flex gap-4'>
-          <input placeholder='Correo Electronico'/>
-          <button className='bg-white/50 rounded-3xl px-2'>SUSCRIBIRSE</button>
-       </div> */}
+    <div className="w-svw h-[300px] gap-3 lg:h-[200px] bg-white bg-cover bg-center bg-no-repeat flex flex-col items-center justify-start py-10 text-black font-lato text-xs">
 
-       <div className='flex flex-col lg:flex-row lg:gap-6'>
+      <div className="flex justify-center items-center">
+          <img src={ojito} className="w-20"/>
+      </div> 
 
-        <Link to='/concurso'>Términos y condiciones</Link>
+      <div className='flex gap-6'>
+
+        <div class=" flex xl:flex-row items-center">
+          <a href="https://www.instagram.com/sleevejoyeria/?hl=es">
+          <img src={iconIg} alt="icono de instagram" class="w-5"/>	
+          </a>			
+        </div>
+
+        <div class=" flex xl:flex-row items-center">
+          <a href="https://www.instagram.com/sleeveboutique/?hl=es">
+          <img src={iconIg} alt="icono de instagram" class="w-5"/>
+          </a>				
+        </div>
+
+        <div class=" flex xl:flex-row items-center">
+          <a href="https://www.instagram.com/sleeveconcept/">
+          <img src={iconIg} alt="icono de instagram" class="w-5"/>
+          </a>				
+        </div>
         
-       </div>
+        <div class=" flex xl:flex-row items-center">
+        <a href="https://www.tiktok.com/@sleeveconcept">
+          <img src={iconTiktok} alt="icono de instagram" class="w-5"/>
+          </a>
+        </div>
+      </div>
 
-       
-       <div className='flex flex-col lg:flex-row lg:gap-6'>
-
-        <p>PQRSD</p>
-        
-       </div>
-
-       <div className='flex flex-col lg:flex-row lg:gap-6'>
-        <a href="">+57 3504651680</a>
-       </div>
+      <div className='flex flex-col lg:flex-row lg:gap-6'>
+        <button onClick={()=>redirectToWhatsApp()}>
+          <p>+57 3504651680</p>
+        </button>
+      </div>
 
        <div className='flex flex-col lg:flex-row lg:gap-6'>
         <a href="">Edificio La Ceiba, Medellín - Colombia</a>
        </div>
 
-       <div className="flex justify-center items-center">
-          <img src={ojito} className="w-20"/>
+      <div className='flex flex-col lg:flex-row lg:gap-10 items-center gap-3'>
+
+        <div className='flex flex-col lg:flex-row lg:gap-6'>
+          <Link to='/terminos'>Terms of Service</Link>        
+        </div>
+        <div className='flex flex-col lg:flex-row lg:gap-6'>
+          <Link to='/refund'>Refund policy</Link>        
+        </div>
+        <div className='flex flex-col lg:flex-row lg:gap-6'>
+          <Link to='/shipping'>Shipping policy</Link>        
+        </div>       
+        <div className='flex flex-col lg:flex-row lg:gap-6'>
+          <p>PQRSD</p>        
         </div>
 
-
-        <div className='flex gap-6'>        
-
-          <div class=" flex xl:flex-row items-center">
-            <img src={iconIg} alt="icono de instagram" class="w-8"/>				
-          </div>
-
-          <div class=" flex xl:flex-row items-center">
-            <img src={iconTiktok} alt="icono de tiktok" class="w-8"/>
-          </div>
-        </div>
+      </div>   
 
     </div>
   )
