@@ -20,7 +20,7 @@ import Shipping from "./pages/footerPages/Shipping.jsx";
 export function App() {
 
   return (
-   <>
+   <div className="w-svw overflow-hidden">
       <Scroll/>
     <Routes>
       {/* <Route exact path="/" element={<Landing />} /> */}
@@ -37,7 +37,7 @@ export function App() {
       <Route exact path="/shipping" element={<Shipping />} />
       <Route path="/productDetail/:id" element={<ProductDetail/>} />
     </Routes>
- </>
+ </div>
   
   )
 }

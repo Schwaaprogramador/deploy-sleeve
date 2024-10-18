@@ -24,7 +24,7 @@ const DefaultLayout = ({children}) => {
             {children}
         </div>
 
-        <div className='fixed bottom-0 right-0 px-3 py-5'>
+        <div className='fixed bottom-2 right-2'>
           <button onClick={()=>redirectToWhatsApp()}>
             <img src={whatapp} className='w-14 hover:w-16 active:w-12'/>
           </button>
