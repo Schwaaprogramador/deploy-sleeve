@@ -117,8 +117,8 @@ export const addItemAlCarrito = async ({cartId ,variantId}) => {
 }
 
 //ELIMINAR PRODUCTOS DEL CARRITO
-export const removeItemAlCarrito = async ({cartId , linesId}) => {
-  const resP = await client.fetch(removeItemToCart, { variables:{cartId, linesId}}).then( res => {
+export const removeItemAlCarrito = async ({cartId , lineIds}) => {
+  const resP = await client.fetch(removeItemToCart, { variables:{cartId, lineIds}}).then( res => {
     if(res.ok){
       return res.json()
     } else {

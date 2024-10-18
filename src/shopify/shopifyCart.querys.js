@@ -17,25 +17,24 @@ query getCarrito($cartId: ID!) {
   cart(id: $cartId) {
     checkoutUrl
     lines(first: 250) {
-      edges {
-        node {
-          quantity
-          merchandise {
-            ... on ProductVariant {
-              id
-              title
-              price {
-                amount
-              }
-              image {
-                url
-              }
+      nodes {
+        id
+        merchandise {
+          ... on ProductVariant {
+            id
+            title
+            price {
+              amount
             }
-          }          
+            image {
+              url
+            }
+          }
         }
+        quantity
       }
     }
-      cost {
+    cost {
       totalAmount {
         amount
       }
@@ -56,6 +55,7 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
   cartLinesAdd(cartId: $cartId, lines: [{ quantity: 1, merchandiseId: $variantId}]) {
     cart {
       lines(first: 100) {
+        
         edges {
           node {
             id
@@ -76,10 +76,10 @@ mutation AddToCart($cartId: ID!, $variantId: ID!) {
 `
 
 export const removeItemToCart = `
-mutation MyMutation($cartId: ID!, $linesId: ID!) {
-  cartLinesRemove(cartId: $cartId, lineIds: [$linesId]) {
-    warnings {
-      message
+mutation MyMutation($cartId: ID!, $lineIds: ID!) {
+  cartLinesRemove(cartId: $cartId, lineIds: [$lineIds]) {
+    cart {
+      id
     }
   }
 }

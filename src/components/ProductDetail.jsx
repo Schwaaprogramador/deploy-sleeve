@@ -82,7 +82,7 @@ const ProductDetail = () => {
 
               <div className='w-screen lg:h-1/3 my-10 flex flex-col justify-center items-center'>
                 <p className='p-5 text-2xl lg:text-6xl font-jose text-black'>{producto.title}</p>
-                <p className='p-10'>{ producto.description ? insertarSaltosDeLinea(producto.description) : ""}</p>      
+                { producto.description ? insertarSaltosDeLinea(producto.description) : ""} 
                 <p className='p-10 text-2xl lg:text-3xl font-path'>Precio: {producto?.variants?.nodes[0].price.amount }</p>   
               </div>
 

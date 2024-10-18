@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks'
-import { closeCart } from '../redux/cartSlice'
+import { closeCart, restarItem } from '../redux/cartSlice'
 import { useDispatch  } from "react-redux";
 import { getCarritoCreado, removeItemAlCarrito } from '../shopify/ShopifyFetchs';
 import { useSelector  } from "react-redux";
@@ -15,12 +15,22 @@ const Cart = () => {
    
     console.log(cart)
     console.log(cartId)
-    const handleRemoveItem = async (linesId) => {
-      console.log(linesId)
-      await removeItemAlCarrito({cartId, linesId})
-      dispatch(closeCart());
-      alert('item eliminado')
+    
+    const handleRemoveItem = async (lineIds) => {
+
+      const res = await removeItemAlCarrito({cartId, lineIds});
+      dispatch(restarItem());
+      getCarrito();      
     }
+
+    
+    const getCarrito = async () => {
+      const carrito = await getCarritoCreado({id:cartId})
+      if(carrito){         
+       setCart(carrito.data.cart)        
+      }
+    }
+
 
   useEffect(() => {
 
@@ -28,12 +38,6 @@ const Cart = () => {
 
      if(cartId){
 
-       const getCarrito = async () => {
-         const carrito = await getCarritoCreado({id:cartId})
-         if(carrito){         
-          setCart(carrito.data.cart)        
-         }
-       }
        getCarrito();
 
      }
@@ -51,14 +55,14 @@ const Cart = () => {
         <div className='flex flex-col items-start justify-center gap-2 lg:flex-wrap'> 
           {
           
-            cart.lines?.edges ? cart.lines.edges.map( item => (
+            cart.lines?.nodes ? cart.lines.nodes.map( item => (
               <div className='flex flex-col items-center lg:flex-row justify-center gap-2'>
                 
-                <img src={item.node.merchandise?.image.url} className='w-[150px]'/>
-                <p>{item.node.merchandise.title}</p>
-                <p>x{item.node.quantity}</p>
-                <p>{item.node.merchandise?.price.amount}</p>
-                <button onClick={()=>handleRemoveItem(item.node.merchandise?.id)}>
+                <img src={item.merchandise?.image.url} className='w-[150px]'/>
+                <p>{item.merchandise.title}</p>
+                <p>x{item.quantity}</p>
+                <p>{item.merchandise?.price.amount}</p>
+                <button onClick={()=>handleRemoveItem(item.id)}>
                   <CiTrash  className="text-black text-3xl"/>
                 </button>
               </div>
